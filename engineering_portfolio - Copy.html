@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anil Kumar Reddy Nadiminti — Engineering Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0E1C2F;
+  --navy-mid: #1A2E47;
+  --navy-light: #243D5C;
+  --steel: #2E5B8A;
+  --steel-light: #3D7AB5;
+  --teal: #0B8C7A;
+  --teal-light: #12B09A;
+  --gold: #C8922A;
+  --gold-light: #E8AD40;
+  --cream: #F5F0E8;
+  --cream-dark: #EBE4D8;
+  --white: #FAFAF8;
+  --text-primary: #0E1C2F;
+  --text-muted: #5A6E82;
+  --text-light: #8FA3B8;
+  --border: rgba(14,28,47,0.12);
+  --border-strong: rgba(14,28,47,0.22);
+  --shadow-sm: 0 2px 8px rgba(14,28,47,0.08);
+  --shadow-md: 0 8px 32px rgba(14,28,47,0.12);
+  --shadow-lg: 0 20px 60px rgba(14,28,47,0.16);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 4rem;
+  height: 64px;
+  background: rgba(250,250,248,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: var(--shadow-sm); }
+.nav-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.25rem;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-cta {
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.5rem 1.2rem;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--steel); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 64px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 4rem 6rem 5rem;
+  position: relative;
+  z-index: 2;
+}
+.hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--teal);
+  display: inline-block;
+}
+.hero-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+.hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.75rem);
+  color: var(--steel);
+  font-style: italic;
+  margin-bottom: 1.75rem;
+}
+.hero-bio {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 440px;
+  margin-bottom: 2.5rem;
+}
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stat-item {}
+.stat-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  color: var(--navy);
+  line-height: 1;
+}
+.stat-num span { color: var(--gold); }
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.25rem;
+}
+.hero-actions { display: flex; gap: 1rem; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--steel); transform: translateY(-1px); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  border: 1.5px solid var(--border-strong);
+  color: var(--text-primary);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline:hover { border-color: var(--steel); background: rgba(46,91,138,0.04); }
+
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 5rem 6rem 2rem;
+  position: relative;
+}
+.hero-card {
+  background: var(--navy);
+  border-radius: 16px;
+  padding: 2.5rem;
+  color: var(--white);
+  width: 100%;
+  max-width: 380px;
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-lg);
+}
+.hc-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--steel));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.75rem;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+  border: 3px solid rgba(255,255,255,0.15);
+}
+.hc-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.25rem;
+}
+.hc-role {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+.hc-divider { height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 1.5rem; }
+.hc-row {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.hc-icon {
+  width: 30px; height: 30px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+.hc-label { font-size: 0.72rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.06em; }
+.hc-value { font-size: 0.875rem; color: rgba(255,255,255,0.9); margin-top: 0.1rem; }
+.hc-badge {
+  display: inline-block;
+  background: rgba(11,140,122,0.25);
+  color: var(--teal-light);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  margin-top: 0.75rem;
+  border: 1px solid rgba(11,140,122,0.3);
+}
+.hero-bg-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+/* ── SECTIONS ── */
+section {
+  padding: 6rem 5rem;
+  position: relative;
+}
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.75rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.section-label::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--teal);
+}
+.section-heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+.section-sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 3.5rem;
+}
+
+/* ── EXPERIENCE ── */
+#experience { background: var(--white); }
+.exp-grid { display: grid; gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.exp-item {
+  padding: 2rem 2.25rem;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-item:hover { background: rgba(14,28,47,0.02); }
+.exp-item.active { background: rgba(46,91,138,0.04); }
+.exp-left {}
+.exp-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+.exp-company {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+.exp-loc {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+.exp-right {}
+.exp-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+.exp-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.exp-bullets li {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding-left: 1.25rem;
+  position: relative;
+  line-height: 1.5;
+}
+.exp-bullets li::before {
+  content: '→';
+  position: absolute; left: 0;
+  color: var(--teal);
+  font-size: 0.8rem;
+}
+.exp-bullets strong { color: var(--navy); font-weight: 500; }
+.exp-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 3px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-top: 1rem;
+}
+.tag-current { background: rgba(11,140,122,0.12); color: var(--teal); }
+.tag-past { background: rgba(14,28,47,0.07); color: var(--text-muted); }
+
+/* ── PROJECTS ── */
+#projects { background: var(--cream); }
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.proj-card {
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+}
+.proj-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.proj-card-header {
+  padding: 1.5rem 1.5rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.proj-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-light);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+}
+.proj-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
+}
+.proj-company {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.proj-card-body { padding: 1.25rem 1.5rem; }
+.proj-method {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  background: rgba(46,91,138,0.1);
+  color: var(--steel);
+  padding: 0.25rem 0.7rem;
+  border-radius: 3px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+}
+.proj-problem {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  border-left: 2px solid var(--border-strong);
+  padding-left: 0.85rem;
+}
+.proj-results { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.25rem; }
+.proj-result {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+}
+.result-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  min-width: 70px;
+  text-align: center;
+}
+.pill-green { background: rgba(11,140,122,0.12); color: var(--teal); }
+.pill-gold { background: rgba(200,146,42,0.12); color: var(--gold); }
+.pill-blue { background: rgba(46,91,138,0.12); color: var(--steel); }
+.result-text { color: var(--text-muted); }
+.proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.proj-tag-item {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-muted);
+}
+
+/* ── SKILLS ── */
+#skills { background: var(--white); }
+.skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.skill-group { margin-bottom: 2rem; }
+.skill-group-title {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.skill-group-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.skill-item { margin-bottom: 1.1rem; }
+.skill-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+.skill-name { font-size: 0.875rem; color: var(--text-primary); }
+.skill-level {
+  font-size: 0.7rem;
+  font-family: 'DM Mono', monospace;
+  color: var(--text-light);
+}
+.skill-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.skill-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1s cubic-bezier(0.4,0,0.2,1);
+  width: 0;
+}
+.fill-teal { background: var(--teal); }
+.fill-steel { background: var(--steel); }
+.fill-gold { background: var(--gold); }
+
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.cert-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.1rem;
+  background: var(--cream);
+}
+.cert-icon { font-size: 1.25rem; margin-bottom: 0.6rem; }
+.cert-name { font-size: 0.85rem; font-weight: 500; color: var(--navy); margin-bottom: 0.2rem; }
+.cert-body { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ── ACHIEVEMENTS ── */
+#achievements { background: var(--navy); }
+#achievements .section-label { color: var(--teal-light); }
+#achievements .section-label::before { background: var(--teal-light); }
+#achievements .section-heading { color: var(--white); }
+#achievements .section-sub { color: rgba(255,255,255,0.5); }
+.achv-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+.achv-metric {
+  background: var(--navy-mid);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+.achv-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.75rem;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.achv-num span { color: var(--gold-light); }
+.achv-desc { font-size: 0.78rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.08em; }
+.achv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.achv-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+.achv-cat {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--teal-light);
+  margin-bottom: 0.75rem;
+}
+.achv-item {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+.achv-item:last-child { margin-bottom: 0; }
+.achv-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.achv-text { font-size: 0.875rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
+.achv-text strong { color: var(--white); font-weight: 500; }
+
+/* ── CONTACT ── */
+#contact { background: var(--cream); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.contact-left {}
+.contact-right {}
+.contact-detail {
+  display: flex; align-items: flex-start; gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.contact-detail:last-child { border-bottom: none; }
+.cd-icon {
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.cd-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); margin-bottom: 0.25rem; }
+.cd-value { font-size: 0.9rem; color: var(--text-primary); font-weight: 400; }
+.cd-value a { color: var(--steel); text-decoration: none; }
+.cd-value a:hover { text-decoration: underline; }
+
+.form-group { margin-bottom: 1.25rem; }
+.form-group label { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.5rem; }
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus { border-color: var(--steel); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-submit {
+  width: 100%;
+  padding: 0.875rem;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.form-submit:hover { background: var(--steel); }
+.open-to {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(11,140,122,0.1);
+  border: 1px solid rgba(11,140,122,0.25);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--teal);
+  margin-bottom: 2rem;
+}
+.open-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+
+/* ── FOOTER ── */
+footer {
+  padding: 2rem 5rem;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* ── EDIT HINT ── */
+.edit-hint {
+  position: fixed;
+  bottom: 1.5rem; right: 1.5rem;
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  box-shadow: var(--shadow-md);
+  z-index: 200;
+  display: flex; align-items: center; gap: 0.5rem;
+  opacity: 1;
+  transition: opacity 0.4s;
+}
+.edit-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-light); }
+
+/* ── ANIMATIONS ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-up:nth-child(2) { transition-delay: 0.1s; }
+.fade-up:nth-child(3) { transition-delay: 0.2s; }
+.fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  section { padding: 4rem 1.5rem; }
+  #hero { grid-template-columns: 1fr; padding: 0; }
+  .hero-left { padding: 8rem 1.5rem 3rem; }
+  .hero-right { padding: 0 1.5rem 4rem; }
+  .skills-layout { grid-template-columns: 1fr; }
+  .achv-metrics { grid-template-columns: 1fr 1fr; }
+  .achv-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .exp-item { grid-template-columns: 1fr; gap: 0.75rem; }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-logo">Anil Kumar Reddy Nadiminti</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in touch</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Quality Systems & Business Excellence | Operational Excellence | Industrial Engineering</div>
+    <h1 class="hero-name">Anil Kumar Reddy<br>Nadiminti</h1>
+    <div class="hero-title">Lean Six Sigma Black Belt</div>
+    <p class="hero-bio">
+      Engineering professional with 6+ years driving operational excellence across automotive and FMCG sectors. Specialist in TPM, DMAIC, and large-scale process transformation — from the shop floor to the boardroom.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">₹4.8<span>Cr</span></div>
+        <div class="stat-label">Savings delivered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Plants improved</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10<span>+</span></div>
+        <div class="stat-label">Years experience</div>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View projects ↓</a>
+      <a href="#" class="btn-outline" onclick="alert('Link your CV PDF here')">Download CV</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-card">
+      <div class="hc-avatar">AS</div>
+      <div class="hc-name">Anil Kumar Reddy Nadiminti</div>
+      <div class="hc-role">Production Supervisor</div>
+      <div class="hc-divider"></div>
+      <div class="hc-row">
+        <div class="hc-icon">📍</div>
+        <div>
+          <div class="hc-label">Location</div>
+          <div class="hc-value">Hyderabad, Telangana, India</div>
+        </div>
+      </div>
+      <div class="hc-row">
+        <div class="hc-icon">🏭</div>
+        <div>
+          <div class="hc-label">Current employer</div>
+          <div class="hc-value">Esvee Atelier</div>
+        </div>
+      </div>
+      <div class="hc-row">
+        <div class="hc-icon">🎓</div>
+        <div>
+          <div class="hc-label">Education</div>
+          <div class="hc-value">B.E. Mechanical — KL University, Hyderabad</div>
+        </div>
+      </div>
+      <div class="hc-row">
+        <div class="hc-icon">📧</div>
+        <div>
+          <div class="hc-label">Email</div>
+          <div class="hc-value">n.anilkumar7896@gmail.com</div>
+        </div>
+      </div>
+      <div class="hc-badge">● Open to Senior / Lead roles</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Career history</div>
+    <h2 class="section-heading">Work experience</h2>
+    <p class="section-sub">A decade of progressive roles across Tier-1 and Tier-2 automotive manufacturers, FMCG plants, and engineering consultancy.</p>
+
+    <div class="exp-grid">
+
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-period">2021 — Present</div>
+          <div class="exp-company">Precision Auto Components Ltd.</div>
+          <div class="exp-loc">Pune, India</div>
+          <span class="exp-tag tag-current">Current</span>
+        </div>
+        <div class="exp-right">
+          <div class="exp-title">Senior Manufacturing Engineer</div>
+          <div class="exp-desc">Lead CI and TPM initiatives across 3 production plants covering 68 machines and 1,200 operators. Report to VP Operations.</div>
+          <ul class="exp-bullets">
+            <li>Drove OEE from <strong>48.6% → 76.2%</strong> across CNC and press lines through 8-pillar TPM deployment</li>
+            <li>Built and led Autonomous Maintenance programme — PM compliance improved from <strong>34% → 91%</strong> in 8 months</li>
+            <li>Managed annual maintenance budget of <strong>₹1.8 Cr</strong>; reduced maintenance cost per unit by 34%</li>
+            <li>Mentored 4 Green Belt candidates; 3 certified with combined savings of <strong>₹1.2 Cr</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-period">2018 — 2021</div>
+          <div class="exp-company">Tata AutoComp Systems</div>
+          <div class="exp-loc">Pune / Sanand, India</div>
+          <span class="exp-tag tag-past">3 years</span>
+        </div>
+        <div class="exp-right">
+          <div class="exp-title">Manufacturing Engineer — CI</div>
+          <div class="exp-desc">Continuous improvement engineer for two stamping and assembly plants producing body-in-white components for OEM supply.</div>
+          <ul class="exp-bullets">
+            <li>Delivered 14 Kaizen events reducing scrap rate from <strong>3.8% → 1.1%</strong> — saving ₹80L/yr</li>
+            <li>Implemented SMED on 6 press lines; average changeover reduced from <strong>62 min → 18 min</strong></li>
+            <li>Introduced Kanban and visual management across 3 assembly lines; WIP inventory reduced by <strong>58%</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-period">2015 — 2018</div>
+          <div class="exp-company">Hindustan Unilever Ltd.</div>
+          <div class="exp-loc">Nashik, India</div>
+          <span class="exp-tag tag-past">3 years</span>
+        </div>
+        <div class="exp-right">
+          <div class="exp-title">Process Engineer</div>
+          <div class="exp-desc">Managed manufacturing process engineering for personal care product lines in a 24×7 FMCG plant with high-speed packaging.</div>
+          <ul class="exp-bullets">
+            <li>Led DMAIC project reducing line downtime by <strong>44%</strong> and improving OEE from 62% to 79%</li>
+            <li>Introduced SPC controls on 4 filling lines; Cpk improved from <strong>0.82 → 1.45</strong></li>
+            <li>Supervised team of 12 operators; zero LTI for 18 consecutive months</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-period">2013 — 2015</div>
+          <div class="exp-company">Mahindra & Mahindra</div>
+          <div class="exp-loc">Nashik, India</div>
+          <span class="exp-tag tag-past">2 years</span>
+        </div>
+        <div class="exp-right">
+          <div class="exp-title">Graduate Engineer Trainee → Junior Engineer</div>
+          <div class="exp-desc">Foundational role in tractor manufacturing — rotated across machining, assembly, quality and maintenance departments.</div>
+          <ul class="exp-bullets">
+            <li>Completed internal Lean training; led first solo Kaizen event reducing <strong>travel waste by 28%</strong></li>
+            <li>Assisted in FMEA review of 3 engine sub-assemblies; raised 22 design improvement NCRs</li>
+            <li>Promoted to Junior Engineer after 14 months — fastest in cohort of 8 GETs</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label">Case studies</div>
+    <h2 class="section-heading">Projects & results</h2>
+    <p class="section-sub">Selected improvement projects with measurable outcomes. Each follows a structured Problem → Approach → Result methodology.</p>
+
+    <div class="proj-grid">
+
+      <div class="proj-card fade-up">
+        <div class="proj-card-header">
+          <div class="proj-num">PROJECT 01 · 2023</div>
+          <div class="proj-title">TPM Deployment — OEE Transformation</div>
+          <div class="proj-company">Precision Auto Components, Pune</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-method">8-Pillar TPM · Autonomous Maintenance</div>
+          <div class="proj-problem">OEE stagnant at 48.6% across 42 CNC lines. MTBF just 38 hours. PM compliance at 34%. Annual maintenance cost ₹1.8 Cr.</div>
+          <div class="proj-results">
+            <div class="proj-result"><span class="result-pill pill-green">↑ 57%</span><span class="result-text">OEE improvement (48.6% → 76.2%)</span></div>
+            <div class="proj-result"><span class="result-pill pill-green">↑ 168%</span><span class="result-text">MTBF from 38h → 102h</span></div>
+            <div class="proj-result"><span class="result-pill pill-gold">↓ 38%</span><span class="result-text">Maintenance cost per unit</span></div>
+            <div class="proj-result"><span class="result-pill pill-blue">₹1.4 Cr</span><span class="result-text">Annual cost saving</span></div>
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag-item">TPM</span><span class="proj-tag-item">5S</span><span class="proj-tag-item">SAP PM</span><span class="proj-tag-item">CMMS</span><span class="proj-tag-item">IoT sensors</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up">
+        <div class="proj-card-header">
+          <div class="proj-num">PROJECT 02 · 2022</div>
+          <div class="proj-title">Press Line Changeover Reduction (SMED)</div>
+          <div class="proj-company">Tata AutoComp Systems, Sanand</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-method">SMED · DMAIC · VSM</div>
+          <div class="proj-problem">6 stamping presses averaging 62-min changeovers — limiting production flexibility and consuming 18% of available capacity.</div>
+          <div class="proj-results">
+            <div class="proj-result"><span class="result-pill pill-green">↓ 71%</span><span class="result-text">Changeover: 62 min → 18 min</span></div>
+            <div class="proj-result"><span class="result-pill pill-green">+620 hrs</span><span class="result-text">Production capacity recovered/year</span></div>
+            <div class="proj-result"><span class="result-pill pill-gold">₹92L</span><span class="result-text">Annual capacity value unlocked</span></div>
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag-item">SMED</span><span class="proj-tag-item">VSM</span><span class="proj-tag-item">Standard Work</span><span class="proj-tag-item">Video analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up">
+        <div class="proj-card-header">
+          <div class="proj-num">PROJECT 03 · 2021</div>
+          <div class="proj-title">Scrap Reduction via Six Sigma DMAIC</div>
+          <div class="proj-company">Tata AutoComp Systems, Pune</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-method">DMAIC · Six Sigma · SPC</div>
+          <div class="proj-problem">Body panel scrap rate running at 3.8% — 2× industry benchmark. Root cause unknown; no SPC controls in place on critical dimensions.</div>
+          <div class="proj-results">
+            <div class="proj-result"><span class="result-pill pill-green">↓ 71%</span><span class="result-text">Scrap rate: 3.8% → 1.1%</span></div>
+            <div class="proj-result"><span class="result-pill pill-green">+0.63</span><span class="result-text">Cpk improvement (0.92 → 1.55)</span></div>
+            <div class="proj-result"><span class="result-pill pill-blue">₹80L</span><span class="result-text">Annual scrap cost saving</span></div>
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag-item">DMAIC</span><span class="proj-tag-item">Minitab</span><span class="proj-tag-item">Fishbone</span><span class="proj-tag-item">SPC</span><span class="proj-tag-item">MSA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up">
+        <div class="proj-card-header">
+          <div class="proj-num">PROJECT 04 · 2019</div>
+          <div class="proj-title">WIP Inventory Reduction via Kanban</div>
+          <div class="proj-company">Tata AutoComp Systems, Pune</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-method">Lean · Kanban · Visual Management</div>
+          <div class="proj-problem">Assembly lines running with 3–5 days WIP buffer — high floor space utilisation, hidden quality escapes, and cash tied up in inventory.</div>
+          <div class="proj-results">
+            <div class="proj-result"><span class="result-pill pill-green">↓ 58%</span><span class="result-text">WIP inventory reduction</span></div>
+            <div class="proj-result"><span class="result-pill pill-green">↓ 40%</span><span class="result-text">Floor space freed</span></div>
+            <div class="proj-result"><span class="result-pill pill-gold">₹65L</span><span class="result-text">Inventory cash release</span></div>
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag-item">Kanban</span><span class="proj-tag-item">VSM</span><span class="proj-tag-item">5S</span><span class="proj-tag-item">Visual mgmt.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up">
+        <div class="proj-card-header">
+          <div class="proj-num">PROJECT 05 · 2017</div>
+          <div class="proj-title">Filling Line OEE Improvement</div>
+          <div class="proj-company">Hindustan Unilever, Nashik</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-method">DMAIC · OEE · SPC</div>
+          <div class="proj-problem">Personal care filling line OEE at 62% — frequent minor stoppages and speed losses not captured by existing data systems.</div>
+          <div class="proj-results">
+            <div class="proj-result"><span class="result-pill pill-green">↑ 27%</span><span class="result-text">OEE: 62% → 79%</span></div>
+            <div class="proj-result"><span class="result-pill pill-green">↑ 0.63</span><span class="result-text">Cpk: 0.82 → 1.45</span></div>
+            <div class="proj-result"><span class="result-pill pill-blue">₹45L</span><span class="result-text">Quality cost saving</span></div>
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag-item">DMAIC</span><span class="proj-tag-item">Minitab</span><span class="proj-tag-item">Control charts</span><span class="proj-tag-item">5 Why</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up">
+        <div class="proj-card-header">
+          <div class="proj-num">PROJECT 06 · 2016</div>
+          <div class="proj-title">Safety Culture & Zero LTI Programme</div>
+          <div class="proj-company">Hindustan Unilever, Nashik</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-method">BBS · Risk Assessment · 5S</div>
+          <div class="proj-problem">3 Lost Time Injuries in preceding 12 months on packaging floor. Near-miss reporting culture non-existent. No structured safety walk programme.</div>
+          <div class="proj-results">
+            <div class="proj-result"><span class="result-pill pill-green">Zero LTI</span><span class="result-text">18 consecutive months achieved</span></div>
+            <div class="proj-result"><span class="result-pill pill-green">+340%</span><span class="result-text">Near-miss reports (leading indicator)</span></div>
+            <div class="proj-result"><span class="result-pill pill-gold">5S Gold</span><span class="result-text">Audit certification received</span></div>
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag-item">BBS</span><span class="proj-tag-item">Risk assessment</span><span class="proj-tag-item">5S</span><span class="proj-tag-item">Safety walks</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-heading">Skills & certifications</h2>
+    <p class="section-sub">Core technical competencies built across 10+ years of hands-on manufacturing and process improvement work.</p>
+
+    <div class="skills-layout">
+      <div>
+        <div class="skill-group">
+          <div class="skill-group-title">Lean & CI methodologies</div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Lean Manufacturing / 5S / VSM</span><span class="skill-level">Expert</span></div><div class="skill-bar"><div class="skill-fill fill-teal" data-width="95"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">TPM — 8 Pillars</span><span class="skill-level">Expert</span></div><div class="skill-bar"><div class="skill-fill fill-teal" data-width="92"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">DMAIC / Six Sigma</span><span class="skill-level">Expert</span></div><div class="skill-bar"><div class="skill-fill fill-teal" data-width="90"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">SMED / Kaizen</span><span class="skill-level">Expert</span></div><div class="skill-bar"><div class="skill-fill fill-teal" data-width="88"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Kanban / Just-in-Time</span><span class="skill-level">Proficient</span></div><div class="skill-bar"><div class="skill-fill fill-teal" data-width="80"></div></div></div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Quality systems</div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">SPC / Control Charts / Cpk</span><span class="skill-level">Expert</span></div><div class="skill-bar"><div class="skill-fill fill-steel" data-width="90"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">FMEA / PFMEA</span><span class="skill-level">Expert</span></div><div class="skill-bar"><div class="skill-fill fill-steel" data-width="88"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">MSA / Gauge R&R</span><span class="skill-level">Proficient</span></div><div class="skill-bar"><div class="skill-fill fill-steel" data-width="78"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">IATF 16949 / ISO 9001</span><span class="skill-level">Proficient</span></div><div class="skill-bar"><div class="skill-fill fill-steel" data-width="75"></div></div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="skill-group">
+          <div class="skill-group-title">Tools & software</div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Minitab</span><span class="skill-level">Expert</span></div><div class="skill-bar"><div class="skill-fill fill-gold" data-width="92"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">SAP PM / EAM</span><span class="skill-level">Proficient</span></div><div class="skill-bar"><div class="skill-fill fill-gold" data-width="80"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">AutoCAD</span><span class="skill-level">Proficient</span></div><div class="skill-bar"><div class="skill-fill fill-gold" data-width="72"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Power BI / Excel (Advanced)</span><span class="skill-level">Expert</span></div><div class="skill-bar"><div class="skill-fill fill-gold" data-width="88"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">MS Project</span><span class="skill-level">Proficient</span></div><div class="skill-bar"><div class="skill-fill fill-gold" data-width="75"></div></div></div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Certifications</div>
+          <div class="cert-grid">
+            <div class="cert-card">
+              <div class="cert-icon">🎓</div>
+              <div class="cert-name">Lean Six Sigma Black Belt</div>
+              <div class="cert-body">ASQ · 2020</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-icon">🏭</div>
+              <div class="cert-name">TPM Instructor</div>
+              <div class="cert-body">JIPM Certified · 2022</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-icon">📋</div>
+              <div class="cert-name">IATF 16949 Lead Auditor</div>
+              <div class="cert-body">Bureau Veritas · 2019</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-icon">📊</div>
+              <div class="cert-name">PMP</div>
+              <div class="cert-body">PMI · 2021</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-inner">
+    <div class="section-label">Recognition</div>
+    <h2 class="section-heading">Achievements & awards</h2>
+    <p class="section-sub">Career highlights, awards, and key contributions that demonstrate sustained impact.</p>
+
+    <div class="achv-metrics">
+      <div class="achv-metric">
+        <div class="achv-num">₹4.8<span>Cr</span></div>
+        <div class="achv-desc">Total savings delivered</div>
+      </div>
+      <div class="achv-metric">
+        <div class="achv-num">18<span>+</span></div>
+        <div class="achv-desc">Kaizen events led</div>
+      </div>
+      <div class="achv-metric">
+        <div class="achv-num">3</div>
+        <div class="achv-desc">Plants transformed</div>
+      </div>
+      <div class="achv-metric">
+        <div class="achv-num">7</div>
+        <div class="achv-desc">Black / Green belts mentored</div>
+      </div>
+    </div>
+
+    <div class="achv-grid">
+      <div class="achv-card">
+        <div class="achv-cat">Awards & recognition</div>
+        <div class="achv-item"><div class="achv-dot"></div><div class="achv-text"><strong>Best CI Project Award</strong> — Precision Auto Components, 2023. Recognised for TPM programme achieving highest OEE gain in company history.</div></div>
+        <div class="achv-item"><div class="achv-dot"></div><div class="achv-text"><strong>Cost Saver of the Year</strong> — Tata AutoComp, 2020. ₹1.7 Cr combined saving across SMED and scrap reduction projects.</div></div>
+        <div class="achv-item"><div class="achv-dot"></div><div class="achv-text"><strong>Safety Champion Award</strong> — HUL Nashik, 2018. Zero LTI achievement for 18 months with best-in-plant near-miss reporting rate.</div></div>
+      </div>
+      <div class="achv-card">
+        <div class="achv-cat">Key milestones</div>
+        <div class="achv-item"><div class="achv-dot"></div><div class="achv-text"><strong>Youngest Black Belt</strong> at Tata AutoComp — certified at age 27, first in plant history under 30.</div></div>
+        <div class="achv-item"><div class="achv-dot"></div><div class="achv-text"><strong>Conference speaker</strong> — Lean India Summit 2022. Presented TPM case study to 300+ manufacturing professionals.</div></div>
+        <div class="achv-item"><div class="achv-dot"></div><div class="achv-text"><strong>Published article</strong> — "From 34% to 91%: A PM Compliance Transformation Story" in Manufacturing Today India, October 2023.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get in touch</div>
+    <h2 class="section-heading">Contact</h2>
+
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="open-to">
+          <div class="open-dot"></div>
+          Open to Senior Engineer / Lean Lead / CI Manager roles
+        </div>
+
+        <div class="contact-detail">
+          <div class="cd-icon">✉</div>
+          <div>
+            <div class="cd-label">Email</div>
+            <div class="cd-value"><a href="mailto:arjun.sharma@email.com">arjun.sharma@email.com</a></div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">📱</div>
+          <div>
+            <div class="cd-label">Phone</div>
+            <div class="cd-value">+91 98765 43210</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">in</div>
+          <div>
+            <div class="cd-label">LinkedIn</div>
+            <div class="cd-value"><a href="#">linkedin.com/in/arjunsharma</a></div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">📍</div>
+          <div>
+            <div class="cd-label">Location</div>
+            <div class="cd-value">Pune, Maharashtra — open to Bangalore, Hyderabad, Mumbai</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <div class="form-group">
+          <label>Your name</label>
+          <input type="text" placeholder="Ravi Kumar">
+        </div>
+        <div class="form-group">
+          <label>Your email</label>
+          <input type="email" placeholder="ravi@company.com">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell me about the role or opportunity..."></textarea>
+        </div>
+        <button class="form-submit" onclick="alert('Form submitted! (Connect this to a backend or Formspree)')">Send message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2024 Anil Kumar Reddy Nadiminti · All rights reserved</span>
+  <span style="font-family:'DM Mono',monospace; font-size:0.72rem;">Built with HTML · Edit to personalise</span>
+</footer>
+
+<!-- EDIT HINT -->
+<div class="edit-hint" id="edit-hint">
+  <div class="edit-dot"></div>
+  Sample data — edit the HTML to personalise
+</div>
+
+<script>
+// Nav scroll shadow
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Skill bar animation on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+      entry.target.querySelectorAll('.fade-up').forEach(el => {
+        el.classList.add('visible');
+      });
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('section').forEach(s => observer.observe(s));
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Hide edit hint after 6s
+setTimeout(() => {
+  const hint = document.getElementById('edit-hint');
+  if (hint) hint.style.opacity = '0';
+}, 6000);
+</script>
+</body>
+</html>
